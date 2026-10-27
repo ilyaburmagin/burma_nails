@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Дарья Бурмагина — маникюр и педикюр · Звенигород</title>
+<meta name="description" content="Мастер маникюра и педикюра в Звенигороде. Аппаратные техники, камуфляж, работа со сложными стопами. Обучение с нуля: онлайн и офлайн.">
+<meta property="og:title" content="Дарья Бурмагина — маникюр и педикюр · Звенигород">
+<meta property="og:image" content="images/daria-hero.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💅</text></svg>">
+<!-- шрифт лежит локально (fonts.css + fonts/): сайт не зависит от Google и быстро грузится в РФ -->
+<link rel="stylesheet" href="fonts.css">
+<style>
+  :root{
+    --ink:#111;
+    --soft:#6e6e6e;
+    --faint:#9a9a9a;
+    --line:#e6e6e6;
+    --bg:#ffffff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+    background:#eceae7;color:var(--ink);line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+
+  /* страница-колонка, как у таплинка на десктопе; на телефоне — во всю ширину */
+  .page{max-width:480px;margin:0 auto;background:var(--bg);min-height:100vh;padding-bottom:56px}
+  @media (min-width:520px){.page{box-shadow:0 0 40px rgba(0,0,0,.08)}}
+  .pad{padding-left:24px;padding-right:24px}
+
+  /* ===== БЛОК: мини-меню (якоря) ===== */
+  .topnav{display:flex;justify-content:space-between;gap:8px;padding:18px 24px 16px;border-bottom:1px solid var(--line)}
+  .topnav a{font-size:10.5px;letter-spacing:.24em;text-transform:lowercase;color:var(--ink);transition:opacity .2s}
+  .topnav a:hover{opacity:.5}
+
+  /* ===== БЛОК: обложка — фото целиком + имя, ник и кнопки на «продолжении» фона ===== */
+  .hero img{width:100%;aspect-ratio:3/4;object-fit:cover}
+  .hero-panel{position:relative;overflow:hidden;background:#c1c1c1;padding:30px 24px;text-align:center}
+  /* бесшовный «продолженный» фон: нижняя кромка фото, отзеркаленная и размытая */
+  .hero-panel::before{content:'';position:absolute;left:0;right:0;top:0;height:160px;background:url('images/daria-hero.jpg') center bottom/100% auto no-repeat;transform:scaleY(-1);filter:blur(32px);opacity:.55;pointer-events:none}
+  .hero-panel > *{position:relative;z-index:1}
+  .hero-kicker{font-size:9.5px;letter-spacing:.34em;text-transform:uppercase;color:#3d3d3d;margin-bottom:12px}
+  .hero-name{font-size:25px;font-weight:600;letter-spacing:.20em;text-transform:uppercase;line-height:1.4;margin-bottom:8px}
+  .hero-id{font-size:12px;letter-spacing:.12em;color:#2a2a2a;margin-bottom:20px}
+  .hero-id a{border-bottom:1px solid #8b8b8b;padding-bottom:1px}
+  .hero-btns{display:grid;gap:10px}
+
+  /* ===== Кнопки: квадратные, тонкая рамка, капс ===== */
+  .btn{display:block;width:100%;text-align:center;padding:15px 18px;border:1px solid var(--ink);font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;transition:.25s}
+  .btn-solid{background:var(--ink);color:#fff}
+  .btn-solid:hover{background:#000}
+  .btn-ghost{background:transparent;color:var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:#fff}
+
+  /* ===== БЛОК: приветствие ===== */
+  .greet{text-align:center;padding:34px 30px 6px}
+  .greet p{font-size:13.5px;color:#3c3c3c;max-width:340px;margin:0 auto 22px}
+
+  /* ===== Блоки-секции ===== */
+  section{padding-top:48px}
+  .sec-title{font-size:14px;font-weight:600;letter-spacing:.30em;text-transform:uppercase;margin-bottom:22px}
+  .sec-sub{font-size:13px;color:var(--soft);margin:-12px 0 22px}
+
+  /* обо мне */
+  .about p{font-size:13.5px;color:#3c3c3c;margin-bottom:20px}
+  .about-3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .about-3 img{aspect-ratio:1;object-fit:cover;filter:grayscale(1);transition:filter .4s}
+  .about-3 img:hover{filter:grayscale(0)}
+
+  /* прайс: карточки в тонкую рамку */
+  .card{border:1px solid var(--ink);padding:24px 20px;margin-bottom:14px}
+  .card h3{font-size:12.5px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;text-align:center;margin-bottom:16px}
+  .rows{border-top:1px solid var(--line)}
+  .row{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);font-size:13px}
+  .row span{color:#3c3c3c}
+  .row b{font-weight:600;white-space:nowrap}
+  .note{text-align:center;font-size:11.5px;letter-spacing:.06em;color:var(--faint);margin-top:14px}
+
+  /* портфолио */
+  .folio{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:18px}
+  .folio img{aspect-ratio:4/5;object-fit:cover;width:100%}
+
+  /* обучение */
+  .card .card-text{font-size:13px;color:#3c3c3c;text-align:center;max-width:300px;margin:0 auto 18px}
+
+  /* FAQ */
+  details{border-bottom:1px solid var(--line);padding:15px 2px}
+  details:first-of-type{border-top:1px solid var(--line)}
+  summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13.5px;font-weight:500}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:'+';font-size:20px;font-weight:400;transition:transform .25s}
+  details[open] summary::after{transform:rotate(45deg)}
+  details p{font-size:13px;color:var(--soft);padding-top:10px}
+
+  /* контакты */
+  .contacts .btn{margin-bottom:10px}
+
+  footer{text-align:center;font-size:11px;color:var(--faint);margin-top:52px;letter-spacing:.06em}
+
+  /* появление при скролле */
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.on{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- БЛОК 1: мини-меню -->
+  <nav class="topnav">
+    <a href="#services">услуги</a>
+    <a href="#works">работы</a>
+    <a href="#edu">обучение</a>
+    <a href="#faq">faq</a>
+  </nav>
+
+  <!-- БЛОК 2: обложка — фото целиком, ниже имя + ник + кнопки на продолжении фона -->
+  <header class="hero">
+    <img src="images/daria-hero.jpg" alt="Дарья Бурмагина — мастер маникюра и педикюра">
+    <div class="hero-panel">
+      <div class="hero-kicker">маникюр · педикюр · обучение</div>
+      <h1 class="hero-name">Дарья<br>Бурмагина</h1>
+      <div class="hero-id"><a href="https://www.instagram.com/burmaginadaria" target="_blank" rel="noopener">@burmaginadaria</a> · Звенигород</div>
+      <div class="hero-btns">
+        <a class="btn btn-solid" href="https://t.me/+0mhX-mEOkzxiMTYy" target="_blank" rel="noopener">Записаться онлайн</a>
+        <a class="btn btn-ghost" href="#services">Прайс и услуги</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- БЛОК 3: приветствие -->
+  <div class="greet reveal">
+    <p>Привет! Я Дарья — мастер маникюра и педикюра. Аппаратные техники, стерильность и внимание к деталям: руки и ноги, на которые хочется смотреть.</p>
+  </div>
+
+  <!-- БЛОК 4: обо мне -->
+  <section class="about pad reveal" id="about">
+    <h2 class="sec-title">Обо мне</h2>
+    <p>Мастер и преподаватель из Звенигорода. Работаю на премиальных материалах, инструменты проходят полный цикл стерилизации в сухожаре, расходники — только одноразовые. Бережно работаю даже со сложными стопами.</p>
+    <div class="about-3">
+      <img src="images/work7.jpg" alt="Классический френч" loading="lazy">
+      <img src="images/work4.jpg" alt="Глянец, молочный шоколад" loading="lazy">
+      <img src="images/work3.jpg" alt="Камуфляж в педикюре" loading="lazy">
+    </div>
+  </section>
+
+  <!-- БЛОК 5: прайс -->
+  <section class="pad reveal" id="services">
+    <h2 class="sec-title">Услуги и цены</h2>
+    <div class="card">
+      <h3>Маникюр</h3>
+      <div class="rows">
+        <div class="row"><span>Аппаратный / комби</span><b>2 400 ₽</b></div>
+        <div class="row"><span>С покрытием гель-лак</span><b>3 200 ₽</b></div>
+        <div class="row"><span>Снятие покрытия</span><b>500 ₽</b></div>
+        <div class="row"><span>Дизайн</span><b>от 200 ₽</b></div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Педикюр</h3>
+      <div class="rows">
+        <div class="row"><span>Аппаратный / комби</span><b>3 400 ₽</b></div>
+        <div class="row"><span>С покрытием</span><b>4 000 ₽</b></div>
+        <div class="row"><span>Камуфляж</span><b>+ 600 ₽</b></div>
+        <div class="row"><span>Тампонада / реконструкция</span><b>от 500 ₽</b></div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Уход</h3>
+      <div class="rows">
+        <div class="row"><span>Спа-уход для рук</span><b>900 ₽</b></div>
+        <div class="row"><span>Массаж стоп</span><b>700 ₽</b></div>
+        <div class="row"><span>Ремонт ногтя</span><b>300 ₽</b></div>
+        <div class="row"><span>Консультация по уходу</span><b>0 ₽</b></div>
+      </div>
+    </div>
+    <p class="note">есть учебные места со скидкой — подробности в telegram</p>
+  </section>
+
+  <!-- БЛОК 6: работы -->
+  <section class="pad reveal" id="works">
+    <h2 class="sec-title">Мои работы</h2>
+    <div class="folio">
+      <img src="images/work4.jpg" alt="Глянец, молочный шоколад" loading="lazy">
+      <img src="images/work7.jpg" alt="Классический френч" loading="lazy">
+      <img src="images/work1.jpg" alt="Педикюр, металлик" loading="lazy">
+      <img src="images/work6.jpg" alt="Педикюр, тёмный шоколад" loading="lazy">
+    </div>
+    <a class="btn btn-ghost" href="https://www.instagram.com/burmaginadaria" target="_blank" rel="noopener">Смотреть больше</a>
+  </section>
+
+  <!-- БЛОК 7: обучение -->
+  <section class="pad reveal" id="edu">
+    <h2 class="sec-title">Обучение</h2>
+    <div class="card">
+      <h3>Педикюр и маникюр с нуля</h3>
+      <p class="card-text">Онлайн и офлайн. Отработка на моделях и поддержка после курса — пока не встанешь на поток.</p>
+      <a class="btn btn-ghost" href="https://t.me/+0mhX-mEOkzxiMTYy" target="_blank" rel="noopener">Подробнее</a>
+    </div>
+  </section>
+
+  <!-- БЛОК 8: FAQ -->
+  <section class="pad reveal" id="faq">
+    <h2 class="sec-title">FAQ</h2>
+    <details>
+      <summary>Как подготовиться к процедуре?</summary>
+      <p>Особой подготовки не нужно. Если есть старое покрытие — не снимайте сами, я сделаю это бережно и без травмы ногтя.</p>
+    </details>
+    <details>
+      <summary>Есть ли стерилизация?</summary>
+      <p>Да. Полный цикл: дезинфекция, мойка и стерилизация в сухожарном шкафу. Расходники — только одноразовые.</p>
+    </details>
+    <details>
+      <summary>Как происходит запись?</summary>
+      <p>Напишите мне в Telegram — подберу удобное окно и подтвержу запись. За день напомню о визите.</p>
+    </details>
+    <details>
+      <summary>Можно ли отменить запись?</summary>
+      <p>Конечно. Просто напишите как можно раньше — освободившееся окно займёт другая клиентка.</p>
+    </details>
+  </section>
+
+  <!-- БЛОК 9: контакты -->
+  <section class="contacts pad reveal" id="contacts">
+    <h2 class="sec-title">Контакты</h2>
+    <a class="btn btn-solid" href="https://t.me/+0mhX-mEOkzxiMTYy" target="_blank" rel="noopener">Telegram</a>
+    <a class="btn btn-ghost" href="https://www.instagram.com/burmaginadaria" target="_blank" rel="noopener">Instagram</a>
+    <!-- ЗАМЕНИ 79000000000 на реальный номер WhatsApp -->
+    <a class="btn btn-ghost" href="https://wa.me/79000000000" target="_blank" rel="noopener">WhatsApp</a>
+    <p class="note">звенигород · пн–сб, по записи</p>
+  </section>
+
+  <footer class="pad">© <span id="year">2026</span> Дарья Бурмагина</footer>
+</div>
+
+<script>
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
